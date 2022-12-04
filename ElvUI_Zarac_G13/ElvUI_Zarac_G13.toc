@@ -1,5 +1,5 @@
-## Interface: 90100
-## Author: Zarac
+## Interface: 100002
+## Author: Ethgri, Repooc, Zarac
 ## Version: 0.13
 ## Title: |cff1784d1ElvUI|r |cff00b3ffZarac G13|r
 ## Notes: ElvUI Plugin for G13 keyboard layout.
