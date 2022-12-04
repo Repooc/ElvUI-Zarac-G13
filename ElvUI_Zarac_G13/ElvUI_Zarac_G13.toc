@@ -4,8 +4,6 @@
 ## Title: |cff1784d1ElvUI|r |cff00b3ffZarac G13|r
 ## Notes: ElvUI Plugin for G13 keyboard layout.
 ## RequiredDeps: ElvUI
-## X-Tukui-ProjectID: 83
-## X-Tukui-ProjectFolders: ElvUI_Zarac_G13
 
 locales.lua
 ElvUI_Zarac_G13.lua
