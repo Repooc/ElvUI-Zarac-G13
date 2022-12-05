@@ -7,8 +7,8 @@ local AB = E:GetModule('ActionBars')
 ZG13.bar2Height = 0
 ZG13.bar2Width = 0
 
-function ZG13:PositionAndSizeBar(...)
-	local barName = ...
+function ZG13:PositionAndSizeBar(barName)
+	if not barName then return end
 
 	if barName == 'bar2' then
 		ZG13.bar2Height = ZG13.bar2:GetHeight()
@@ -20,7 +20,7 @@ end
 
 function ZG13:setPositionButtonsInBar()
 	local bar1 = ZG13.bar1
-	local bar2 = ZG13.bar5
+	local bar2 = ZG13.bar2
 
 	local buttonPoint = 'TOPLEFT'
 	local anchorPoint = 'BOTTOMLEFT'
@@ -29,8 +29,8 @@ function ZG13:setPositionButtonsInBar()
 	local bar1_buttonSpacing = AB.db.bar1.buttonSpacing
 	bar1_buttonSpacing = E:Scale(bar1_buttonSpacing)
 
-	local bar5_buttonSpacing = AB.db.bar2.buttonSpacing
-	bar5_buttonSpacing = E:Scale(bar2_buttonSpacing)
+	local bar2_buttonSpacing = AB.db.bar2.buttonSpacing
+	bar2_buttonSpacing = E:Scale(bar2_buttonSpacing)
 
 	local backdropSpacing = E:Scale(AB.db.bar2.backdropSpacing or AB.db.bar2.buttonSpacing)
 	local backdopTotalSpacing = (backdropSpacing + E.Border) * 2
@@ -39,10 +39,10 @@ function ZG13:setPositionButtonsInBar()
 		backdopTotalSpacing = 0
 	end
 
-	x = (bar5:GetWidth() - backdopTotalSpacing - bar1:GetWidth()) / 2
+	x = (bar2:GetWidth() - backdopTotalSpacing - bar1:GetWidth()) / 2
 	y = -bar1_buttonSpacing;
 	ZG13.bar1_button1:ClearAllPoints()
-	ZG13.bar1_button1:SetPoint(buttonPoint, ZG13.bar5_button1, anchorPoint, x, y)
+	ZG13.bar1_button1:SetPoint(buttonPoint, ZG13.bar2_button1, anchorPoint, x, y)
 
 	x = 0
 	ZG13.bar1_button8:ClearAllPoints()
@@ -109,7 +109,7 @@ end
 
 function ZG13:CacheBarsAndButtonsNames()
 	ZG13.bar1 = AB.handledBars['bar1']
-	ZG13.bar5 = AB.handledBars['bar5']
+	ZG13.bar2 = AB.handledBars['bar2']
 	ZG13.bar1_button1  = ZG13.bar1.buttons[1]
 	ZG13.bar1_button2  = ZG13.bar1.buttons[2]
 	ZG13.bar1_button8  = ZG13.bar1.buttons[8]
