@@ -7,3 +7,4 @@
 
 Locales\Load_Locales.xml
 ElvUI_Zarac_G13.lua
+Options.lua

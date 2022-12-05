@@ -1,8 +1,14 @@
+local addonName = ...
 local E, L, V, P, G = unpack(ElvUI)
 local ZG13 = E:NewModule('ZG13', 'AceHook-3.0', 'AceEvent-3.0', 'AceTimer-3.0')
-local EP = LibStub('LibElvUIPlugin-1.0')
-local addonName, addonTable = ...
-local AB = E:GetModule('ActionBars')
+local AB = E.ActionBars
+
+ZG13.Configs = {}
+local function GetOptions()
+	for _, func in pairs(ZG13.Configs) do
+		func()
+	end
+end
 
 ZG13.bar2Height = 0
 ZG13.bar2Width = 0
@@ -124,47 +130,8 @@ function ZG13:HideBar1Mover()
 	E:DisableMover(ElvUI_Bar1.mover.name)
 end
 
-function ZG13:InsertOptions()
-	local configContent = {
-		['descriptionHeader'] = {
-			order = 0,
-			type = 'header',
-			name = L["Description"],
-		},
-		['description']	= {
-			order = 1,
-			type = 'description',
-			name = L["ZG13_DESCRIPTION"],
-			fontSize = 'medium',
-		},
-		['authorHeader'] = {
-			order = 2,
-			type = 'header',
-			name = L["Authors"],
-		},
-		['author2'] = {
-			order = 4,
-			type = 'description',
-			name = '|cFF69CCF0Zarac|r |cFF144587US-Goldrinn|r',
-			fontSize = 'large',
-		},
-		['author1'] = {
-			order = 3,
-			type = 'description',
-			name = '|cFF69CCF0Ethgriskolir|r |cFF144587US-Nesingwary|r',
-			fontSize = 'large',
-		}
-	}
-	E.Options.args.ZG13 = {
-		order = 100,
-		type = 'group',
-		name = 'Zarac G13 plugin',
-		args = configContent,
-	}
-end
-
 function ZG13:Initialize()
-	EP:RegisterPlugin(addonName, ZG13.InsertOptions)
+	E.Libs.EP:RegisterPlugin(addonName, GetOptions)
 
 	if E.private.actionbar.enable ~= true
 		then return
