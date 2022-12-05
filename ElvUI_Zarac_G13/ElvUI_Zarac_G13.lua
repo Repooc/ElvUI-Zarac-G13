@@ -11,7 +11,7 @@ function ZG13:PositionAndSizeBar(...)
 	local barName = ...
 
 	if barName == 'bar2' then
-		ZG13.bar2Height = ZG13.bar2:GetHeight();
+		ZG13.bar2Height = ZG13.bar2:GetHeight()
 	end
 	if barName == 'bar1' or barName == 'bar2' then
 		ZG13:setPositionButtonsInBar()
@@ -24,8 +24,7 @@ function ZG13:setPositionButtonsInBar()
 
 	local buttonPoint = 'TOPLEFT'
 	local anchorPoint = 'BOTTOMLEFT'
-	local x = 0
-	local y = 0
+	local x, y
 
 	local bar1_buttonSpacing = AB.db.bar1.buttonSpacing
 	bar1_buttonSpacing = E:Scale(bar1_buttonSpacing)
@@ -183,7 +182,7 @@ function ZG13:Initialize()
 end
 
 local function InitializeCallback()
-  ZG13:Initialize()
+	ZG13:Initialize()
 end
 
 E:RegisterModule(ZG13:GetName(), InitializeCallback);
