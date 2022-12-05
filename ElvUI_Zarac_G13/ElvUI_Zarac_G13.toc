@@ -5,5 +5,5 @@
 ## Notes: ElvUI Plugin for G13 keyboard layout.
 ## RequiredDeps: ElvUI
 
-locales.lua
+Locales\Load_Locales.xml
 ElvUI_Zarac_G13.lua

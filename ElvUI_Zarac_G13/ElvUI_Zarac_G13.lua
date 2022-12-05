@@ -134,7 +134,7 @@ function ZG13:InsertOptions()
 		['description']	= {
 			order = 1,
 			type = 'description',
-			name = L["DESCRIPTION"],
+			name = L["ZG13_DESCRIPTION"],
 			fontSize = 'medium',
 		},
 		['authorHeader'] = {
